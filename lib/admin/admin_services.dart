@@ -87,92 +87,105 @@ class _AdminServicesState extends State<AdminServices> {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 10, right: 15, left: 15, bottom: 10),
-                                child: Container(
-                                  child: Column(
-                                    children: [
-                                      Image.network(
-                                          '${servicesList[index].imageUrl.toString()}',height:100.h),
-                                          SizedBox(height:20.h),
-                                      Image.network(
-                                          '${servicesList[index].imageUrl2.toString()}',height:100.h),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Text(
-                                          'اسم صاحب الخدمة : ${servicesList[index].name.toString()}',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Cairo'),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 10, right: 15, left: 15, bottom: 10),
+                                  child: Container(
+                                    child: Column(
+                                      children: [
+                                        Image.network(
+                                            '${servicesList[index].imageUrl.toString()}',height:100.h),
+                                            SizedBox(height:20.h),
+                                        Image.network(
+                                            '${servicesList[index].imageUrl2.toString()}',height:100.h),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'اسم صاحب الخدمة : ${servicesList[index].name.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
                                         ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Text(
-                                          'نوع الخدمة : ${servicesList[index].type.toString()}',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Cairo'),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'نوع الخدمة : ${servicesList[index].type.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
                                         ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Text(
-                                          'الخبرة : ${servicesList[index].experience.toString()}',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Cairo'),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'التخصص : ${servicesList[index].speciality.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
                                         ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Text(
-                                          'المواعيد المتاحة : ${servicesList[index].appointment.toString()}',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Cairo'),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'الخبرة : ${servicesList[index].experience.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
                                         ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Text(
-                                          'رقم الهاتف : ${servicesList[index].phone.toString()}',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Cairo'),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'المواعيد المتاحة : ${servicesList[index].appointment.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
                                         ),
-                                      ),
-                                      InkWell(
-                                        onTap: () async {
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder:
-                                                      (BuildContext context) =>
-                                                          super.widget));
-                                          base
-                                              .child(servicesList[index]
-                                                  .id
-                                                  .toString())
-                                              .remove();
-                                        },
-                                        child: Icon(Icons.delete,
-                                            color: Color.fromARGB(
-                                                255, 122, 122, 122)),
-                                      )
-                                    ],
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Text(
+                                            'رقم الهاتف : ${servicesList[index].phone.toString()}',
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Cairo'),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () async {
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder:
+                                                        (BuildContext context) =>
+                                                            super.widget));
+                                            base
+                                                .child(servicesList[index]
+                                                    .id
+                                                    .toString())
+                                                .remove();
+                                          },
+                                          child: Icon(Icons.delete,
+                                              color: Color.fromARGB(
+                                                  255, 122, 122, 122)),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

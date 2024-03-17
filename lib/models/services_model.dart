@@ -10,6 +10,7 @@ class Services {
     String? imageUrl,
     String? phone,
     String? type,
+    String? speciality,
   }) {
     _appointment = appointment;
     _experience = experience;
@@ -19,17 +20,19 @@ class Services {
     _imageUrl = imageUrl;
     _phone = phone;
     _type = type;
+    _speciality = speciality;
   }
 
   Services.fromJson(dynamic json) {
     _appointment = json['appointment'];
-   _experience= json['experience'];
+    _experience = json['experience'];
     _imageUrl2 = json['imageUrl2'];
     _name = json['name'];
     _id = json['id'];
     _imageUrl = json['imageUrl'];
     _phone = json['phone'];
     _type = json['type'];
+    _speciality = json['speciality'];
   }
 
   String? _appointment;
@@ -40,6 +43,7 @@ class Services {
   String? _imageUrl;
   String? _phone;
   String? _type;
+  String? _speciality;
 
   String? get appointment => _appointment;
   String? get experience => _experience;
@@ -49,6 +53,7 @@ class Services {
   String? get imageUrl => _imageUrl;
   String? get phone => _phone;
   String? get type => _type;
+  String? get speciality => _speciality;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -60,6 +65,7 @@ class Services {
     map['imageUrl'] = _imageUrl;
     map['phone'] = _phone;
     map['type'] = _type;
+    map['type'] = _speciality;
 
     return map;
   }

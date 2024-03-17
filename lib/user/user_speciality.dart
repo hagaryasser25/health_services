@@ -1,20 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:health_services/admin/admin_list.dart';
 import 'package:health_services/admin/admin_services.dart';
 import 'package:health_services/auth/login_screen.dart';
+import 'package:health_services/user/user_services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class AdminHome extends StatefulWidget {
-  static const routeName = '/adminHome';
-  const AdminHome({super.key});
+class UserSpeciality extends StatefulWidget {
+  static const routeName = '/userSpeciality';
+  const UserSpeciality({super.key});
 
   @override
-  State<AdminHome> createState() => _AdminHomeState();
+  State<UserSpeciality> createState() => _UserSpecialityState();
 }
 
-class _AdminHomeState extends State<AdminHome> {
+class _UserSpecialityState extends State<UserSpeciality> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -30,49 +30,12 @@ class _AdminHomeState extends State<AdminHome> {
               backgroundColor: Color(0xFF2661FA),
               title: Center(
                   child: Text(
-                'الصفحة الرئيسية',
+                "التخصصات",
                 style: TextStyle(color: Colors.white),
               )),
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.logout),
-                  tooltip: 'Open shopping cart',
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text('تأكيد'),
-                            content: Text('هل انت متأكد من تسجيل الخروج'),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  FirebaseAuth.instance.signOut();
-                                  Navigator.pushNamed(
-                                      context, LoginScreen.routeName);
-                                },
-                                child: Text('نعم'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text('لا'),
-                              ),
-                            ],
-                          );
-                        });
-                  },
-                ),
-              ],
             ),
             body: Column(
               children: [
-                Image.asset('assets/images/doctor.jpg', height: 300.h),
-                Text(
-                  'الخدمات المتاحة',
-                  style: TextStyle(fontSize: 27, color: HexColor('#32486d')),
-                ),
                 SizedBox(
                   height: size.height * 0.04,
                 ),
@@ -80,7 +43,12 @@ class _AdminHomeState extends State<AdminHome> {
                   SizedBox(width: size.width * 0.04),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, AdminServices.routeName);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return UserServices(
+                           type: 'طبيب',
+                        );
+                      }));
                     },
                     child: Container(
                       child: Container(
@@ -101,7 +69,7 @@ class _AdminHomeState extends State<AdminHome> {
                           ),
                         ),
                         child: Center(
-                          child: Text("أضافة زيارات منزلية",
+                          child: Text("طبيب",
                               style:
                                   TextStyle(fontSize: 18, color: Colors.white)),
                         ),
@@ -113,7 +81,12 @@ class _AdminHomeState extends State<AdminHome> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, AdminList.routeName);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return UserServices(
+                           type: "ممرض",
+                        );
+                      }));
                     },
                     child: Container(
                       child: Container(
@@ -134,14 +107,52 @@ class _AdminHomeState extends State<AdminHome> {
                           ),
                         ),
                         child: Center(
-                          child: Text("الحجوزات",
+                          child: Text("ممرض",
                               style:
                                   TextStyle(fontSize: 18, color: Colors.white)),
                         ),
                       ),
                     ),
-                  )
-                ])
+                  ),
+                ]),
+                SizedBox(
+                  height: size.height * 0.04,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return UserServices(
+                           type: "جليس",
+                        );
+                      }));
+                  },
+                  child: Container(
+                    child: Container(
+                      width: size.width * 0.45,
+                      height: size.height * 0.30,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xfff1665f),
+                            Color(0xFF2661FA),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(30),
+                          topLeft: Radius.circular(30),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text("جليس",
+                            style:
+                                TextStyle(fontSize: 18, color: Colors.white)),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

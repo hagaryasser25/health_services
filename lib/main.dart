@@ -3,13 +3,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health_services/admin/add_service.dart';
 import 'package:health_services/admin/admin_home.dart';
+import 'package:health_services/admin/admin_list.dart';
 import 'package:health_services/admin/admin_services.dart';
 import 'package:health_services/auth/admin_login.dart';
 import 'package:health_services/auth/login_screen.dart';
 import 'package:health_services/auth/signup.dart';
 import 'package:health_services/user/user_home.dart';
+import 'package:health_services/user/user_speciality.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -46,8 +48,7 @@ class MyApp extends StatelessWidget {
           ? LoginScreen()
           : FirebaseAuth.instance.currentUser!.email == "admin@gmail.com"
               ? const AdminHome()
-              
-                  : UserHome(),
+              : UserHome(),
       routes: {
         SignUp.routeName: (ctx) => SignUp(),
         AdminHome.routeName: (ctx) => AdminHome(),
@@ -55,6 +56,9 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (ctx) => LoginScreen(),
         AdminServices.routeName: (ctx) => AdminServices(),
         AddService.routeName: (ctx) => AddService(),
+        UserHome.routeName: (ctx) => UserHome(),
+        UserSpeciality.routeName: (ctx) => UserSpeciality(),
+        AdminList.routeName: (ctx) => AdminList(),
       },
     );
   }
