@@ -28,6 +28,9 @@ class _AddServiceState extends State<AddService> {
   String imageUrl2 = '';
   File? image2;
   String dropdownValue = "طبيب";
+  String dropdownValue2 = "عظام";
+  String dropdownValue3 = "عام";
+  String dropdownValue4 = "مسنيين";
   var nameController = TextEditingController();
   var phoneController = TextEditingController();
   var experienceController = TextEditingController();
@@ -118,8 +121,9 @@ class _AddServiceState extends State<AddService> {
                                     radius: 65,
                                     backgroundColor:
                                         Color.fromARGB(255, 188, 204, 245),
-                                    backgroundImage:
-                                        image == null ? null : FileImage(image!),
+                                    backgroundImage: image == null
+                                        ? null
+                                        : FileImage(image!),
                                   )),
                               Positioned(
                                   top: 110,
@@ -145,17 +149,19 @@ class _AddServiceState extends State<AddService> {
                                                       style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          color:
-                                                              Color(0xFF2661FA))),
-                                                  content: SingleChildScrollView(
+                                                          color: Color(
+                                                              0xFF2661FA))),
+                                                  content:
+                                                      SingleChildScrollView(
                                                     child: ListBody(
                                                       children: [
                                                         InkWell(
                                                             onTap: () {
                                                               pickImageFromDevice();
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -164,7 +170,8 @@ class _AddServiceState extends State<AddService> {
                                                                           .all(
                                                                           8.0),
                                                                   child: Icon(
-                                                                      Icons.image,
+                                                                      Icons
+                                                                          .image,
                                                                       color: Color(
                                                                           0xFF2661FA)),
                                                                 ),
@@ -183,8 +190,9 @@ class _AddServiceState extends State<AddService> {
                                                             onTap: () {
                                                               // pickImageFromCamera();
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -216,8 +224,9 @@ class _AddServiceState extends State<AddService> {
                                                                     context);
                                                               });
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -290,17 +299,19 @@ class _AddServiceState extends State<AddService> {
                                                       style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          color:
-                                                              Color(0xFF2661FA))),
-                                                  content: SingleChildScrollView(
+                                                          color: Color(
+                                                              0xFF2661FA))),
+                                                  content:
+                                                      SingleChildScrollView(
                                                     child: ListBody(
                                                       children: [
                                                         InkWell(
                                                             onTap: () {
                                                               pickImageFromDevice2();
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -309,7 +320,8 @@ class _AddServiceState extends State<AddService> {
                                                                           .all(
                                                                           8.0),
                                                                   child: Icon(
-                                                                      Icons.image,
+                                                                      Icons
+                                                                          .image,
                                                                       color: Color(
                                                                           0xFF2661FA)),
                                                                 ),
@@ -328,8 +340,9 @@ class _AddServiceState extends State<AddService> {
                                                             onTap: () {
                                                               // pickImageFromCamera();
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -361,8 +374,9 @@ class _AddServiceState extends State<AddService> {
                                                                     context);
                                                               });
                                                             },
-                                                            splashColor: HexColor(
-                                                                '#FA8072'),
+                                                            splashColor:
+                                                                HexColor(
+                                                                    '#FA8072'),
                                                             child: Row(
                                                               children: [
                                                                 Padding(
@@ -415,7 +429,7 @@ class _AddServiceState extends State<AddService> {
                       child: DropdownButton<String>(
                         isExpanded: true,
                         underline: SizedBox(),
-                
+
                         // Step 3.
                         value: dropdownValue,
                         icon: Padding(
@@ -423,7 +437,7 @@ class _AddServiceState extends State<AddService> {
                           child: Icon(Icons.arrow_drop_down,
                               color: Color(0xFF2661FA)),
                         ),
-                
+
                         // Step 4.
                         items: ['طبيب', "ممرض", "جليس"]
                             .map<DropdownMenuItem<String>>((String value) {
@@ -449,6 +463,165 @@ class _AddServiceState extends State<AddService> {
                     SizedBox(
                       height: 20.h,
                     ),
+                    dropdownValue == 'طبيب'
+                        ? DecoratedBox(
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                    width: 1.0,
+                                    style: BorderStyle.solid,
+                                    color: Color(0xFF2661FA)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
+                            ),
+                            child: DropdownButton<String>(
+                              isExpanded: true,
+                              underline: SizedBox(),
+
+                              // Step 3.
+                              value: dropdownValue2,
+                              icon: Padding(
+                                padding: EdgeInsets.only(right: 5),
+                                child: Icon(Icons.arrow_drop_down,
+                                    color: Color(0xFF2661FA)),
+                              ),
+
+                              // Step 4.
+                              items: [
+                                "عظام",
+                                "قلب",
+                                "عيون",
+                                "أطفال",
+                                "مخ و أعصاب"
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Center(
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(
+                                          fontSize: 21,
+                                          color: Color(0xFF2661FA)),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                              // Step 5.
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue2 = newValue!;
+                                });
+                              },
+                            ),
+                          )
+                        : dropdownValue == "ممرض"
+                            ? DecoratedBox(
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 1.0,
+                                        style: BorderStyle.solid,
+                                        color: Color(0xFF2661FA)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                child: DropdownButton<String>(
+                                  isExpanded: true,
+                                  underline: SizedBox(),
+
+                                  // Step 3.
+                                  value: dropdownValue3,
+                                  icon: Padding(
+                                    padding: EdgeInsets.only(right: 5),
+                                    child: Icon(Icons.arrow_drop_down,
+                                        color: Color(0xFF2661FA)),
+                                  ),
+
+                                  // Step 4.
+                                  items: [
+                                    "عام",
+                                    "جراحى",
+                                    "نسائى",
+                                    "وظيفى",
+                                    "نفسى",
+                                    "اسرى"
+                                  ].map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Center(
+                                        child: Text(
+                                          value,
+                                          style: TextStyle(
+                                              fontSize: 21,
+                                              color: Color(0xFF2661FA)),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  // Step 5.
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      dropdownValue3 = newValue!;
+                                    });
+                                  },
+                                ),
+                              )
+                            : DecoratedBox(
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 1.0,
+                                        style: BorderStyle.solid,
+                                        color: Color(0xFF2661FA)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                child: DropdownButton<String>(
+                                  isExpanded: true,
+                                  underline: SizedBox(),
+
+                                  // Step 3.
+                                  value: dropdownValue4,
+                                  icon: Padding(
+                                    padding: EdgeInsets.only(right: 5),
+                                    child: Icon(Icons.arrow_drop_down,
+                                        color: Color(0xFF2661FA)),
+                                  ),
+
+                                  // Step 4.
+                                  items: [
+                                    "مسنيين",
+                                    "اطفال",
+                                    "اعاقة او مرض مزمن"
+                                  ].map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Center(
+                                        child: Text(
+                                          value,
+                                          style: TextStyle(
+                                              fontSize: 21,
+                                              color: Color(0xFF2661FA)),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  // Step 5.
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      dropdownValue4 = newValue!;
+                                    });
+                                  },
+                                ),
+                              ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
                     SizedBox(
                       height: 65.h,
                       child: TextField(
@@ -456,8 +629,8 @@ class _AddServiceState extends State<AddService> {
                         decoration: InputDecoration(
                           fillColor: HexColor('#155564'),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Color(0xFF2661FA), width: 2.0),
+                            borderSide: BorderSide(
+                                color: Color(0xFF2661FA), width: 2.0),
                           ),
                           border: OutlineInputBorder(),
                           hintText: "اسم صاحب الخدمة",
@@ -472,8 +645,8 @@ class _AddServiceState extends State<AddService> {
                         decoration: InputDecoration(
                           fillColor: HexColor('#155564'),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Color(0xFF2661FA), width: 2.0),
+                            borderSide: BorderSide(
+                                color: Color(0xFF2661FA), width: 2.0),
                           ),
                           border: OutlineInputBorder(),
                           hintText: "الخبرة",
@@ -484,30 +657,12 @@ class _AddServiceState extends State<AddService> {
                     SizedBox(
                       height: 65.h,
                       child: TextField(
-                        controller: specialityController,
-                        decoration: InputDecoration(
-                          fillColor: HexColor('#155564'),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Color(0xFF2661FA), width: 2.0),
-                          ),
-                          border: OutlineInputBorder(),
-                          hintText: "التخصص",
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    SizedBox(
-                      height: 65.h,
-                      child: TextField(
                         controller: appointmentController,
                         decoration: InputDecoration(
                           fillColor: HexColor('#155564'),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Color(0xFF2661FA), width: 2.0),
+                            borderSide: BorderSide(
+                                color: Color(0xFF2661FA), width: 2.0),
                           ),
                           border: OutlineInputBorder(),
                           hintText: "المواعيد",
@@ -522,8 +677,8 @@ class _AddServiceState extends State<AddService> {
                         decoration: InputDecoration(
                           fillColor: HexColor('#155564'),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Color(0xFF2661FA), width: 2.0),
+                            borderSide: BorderSide(
+                                color: Color(0xFF2661FA), width: 2.0),
                           ),
                           border: OutlineInputBorder(),
                           hintText: "رقم الهاتف",
@@ -543,10 +698,10 @@ class _AddServiceState extends State<AddService> {
                         onPressed: () async {
                           String name = nameController.text.trim();
                           String experience = experienceController.text.trim();
-                          String appointment = appointmentController.text.trim();
+                          String appointment =
+                              appointmentController.text.trim();
                           String phone = phoneController.text.trim();
-                          String speciality = specialityController.text.trim();
-                
+
                           if (name.isEmpty ||
                               experience.isEmpty ||
                               appointment.isEmpty ||
@@ -559,31 +714,57 @@ class _AddServiceState extends State<AddService> {
                             ).show(context);
                             return;
                           }
-                
+
                           User? user = FirebaseAuth.instance.currentUser;
-                
+
                           if (user != null) {
                             String uid = user.uid;
                             int date = DateTime.now().millisecondsSinceEpoch;
-                
+
                             DatabaseReference companyRef = FirebaseDatabase
                                 .instance
                                 .reference()
                                 .child('services');
-                
+
                             String? id = companyRef.push().key;
-                
-                            await companyRef.child(id!).set({
-                              'imageUrl': imageUrl,
-                              'id': id,
-                              'name': name,
-                              'experience': experience,
-                              'appointment': appointment,
-                              'type': dropdownValue,
-                              'speciality': speciality,
-                              'imageUrl2': imageUrl2,
-                              'phone': phone,
-                            });
+                            if (dropdownValue == "طبيب") {
+                              await companyRef.child(id!).set({
+                                'imageUrl': imageUrl,
+                                'id': id,
+                                'name': name,
+                                'experience': experience,
+                                'appointment': appointment,
+                                'type': dropdownValue,
+                                'speciality': dropdownValue2,
+                                'imageUrl2': imageUrl2,
+                                'phone': phone,
+                              });
+                            } else if (dropdownValue == "ممرض") {
+                              await companyRef.child(id!).set({
+                                'imageUrl': imageUrl,
+                                'id': id,
+                                'name': name,
+                                'experience': experience,
+                                'appointment': appointment,
+                                'type': dropdownValue,
+                                'speciality': dropdownValue3,
+                                'imageUrl2': imageUrl2,
+                                'phone': phone,
+                              });
+                            }
+                            {
+                              await companyRef.child(id!).set({
+                                'imageUrl': imageUrl,
+                                'id': id,
+                                'name': name,
+                                'experience': experience,
+                                'appointment': appointment,
+                                'type': dropdownValue,
+                                'speciality': dropdownValue4,
+                                'imageUrl2': imageUrl2,
+                                'phone': phone,
+                              });
+                            }
                           }
                           showAlertDialog(context);
                         },
@@ -595,7 +776,9 @@ class _AddServiceState extends State<AddService> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.h,)
+                    SizedBox(
+                      height: 20.h,
+                    )
                   ],
                 ),
               ),

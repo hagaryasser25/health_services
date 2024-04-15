@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:health_services/admin/admin_services.dart';
 import 'package:health_services/auth/login_screen.dart';
+import 'package:health_services/user/user_doctors.dart';
 import 'package:health_services/user/user_services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -43,12 +44,7 @@ class _UserSpecialityState extends State<UserSpeciality> {
                   SizedBox(width: size.width * 0.04),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return UserServices(
-                           type: 'طبيب',
-                        );
-                      }));
+                      Navigator.pushNamed(context, UserDoctors.routeName);
                     },
                     child: Container(
                       child: Container(
@@ -84,7 +80,7 @@ class _UserSpecialityState extends State<UserSpeciality> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return UserServices(
-                           type: "ممرض",
+                          type: "ممرض",
                         );
                       }));
                     },
@@ -121,11 +117,11 @@ class _UserSpecialityState extends State<UserSpeciality> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return UserServices(
-                           type: "جليس",
-                        );
-                      }));
+                        MaterialPageRoute(builder: (context) {
+                      return UserServices(
+                        type: "جليس",
+                      );
+                    }));
                   },
                   child: Container(
                     child: Container(

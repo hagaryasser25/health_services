@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:health_services/admin/admin_count.dart';
 import 'package:health_services/admin/admin_list.dart';
 import 'package:health_services/admin/admin_services.dart';
 import 'package:health_services/auth/login_screen.dart';
@@ -68,7 +69,7 @@ class _AdminHomeState extends State<AdminHome> {
             ),
             body: Column(
               children: [
-                Image.asset('assets/images/doctor.jpg', height: 300.h),
+                Image.asset('assets/images/doctor.jpg', height: 200.h),
                 Text(
                   'الخدمات المتاحة',
                   style: TextStyle(fontSize: 27, color: HexColor('#32486d')),
@@ -85,7 +86,7 @@ class _AdminHomeState extends State<AdminHome> {
                     child: Container(
                       child: Container(
                         width: size.width * 0.45,
-                        height: size.height * 0.30,
+                        height: size.height * 0.25,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -118,7 +119,7 @@ class _AdminHomeState extends State<AdminHome> {
                     child: Container(
                       child: Container(
                         width: size.width * 0.45,
-                        height: size.height * 0.30,
+                        height: size.height * 0.25,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -141,7 +142,38 @@ class _AdminHomeState extends State<AdminHome> {
                       ),
                     ),
                   )
-                ])
+                ]),
+                SizedBox(height: 15.h,),
+                   InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, AdminCount.routeName);
+                    },
+                    child: Container(
+                      child: Container(
+                        width: size.width * 0.45,
+                        height: size.height * 0.25,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xfff1665f),
+                              Color(0xFF2661FA),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(30),
+                            topLeft: Radius.circular(30),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text("الأحصائيات",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  )
               ],
             ),
           ),

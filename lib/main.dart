@@ -2,12 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health_services/admin/add_service.dart';
+import 'package:health_services/admin/admin_count.dart';
 import 'package:health_services/admin/admin_home.dart';
 import 'package:health_services/admin/admin_list.dart';
 import 'package:health_services/admin/admin_services.dart';
 import 'package:health_services/auth/admin_login.dart';
 import 'package:health_services/auth/login_screen.dart';
 import 'package:health_services/auth/signup.dart';
+import 'package:health_services/user/user_doctors.dart';
 import 'package:health_services/user/user_home.dart';
 import 'package:health_services/user/user_speciality.dart';
 
@@ -55,8 +57,10 @@ class MyApp extends StatelessWidget {
         AdminLogin.routeName: (ctx) => AdminLogin(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
         AdminServices.routeName: (ctx) => AdminServices(),
+        AdminCount.routeName: (ctx) => AdminCount(),
         AddService.routeName: (ctx) => AddService(),
         UserHome.routeName: (ctx) => UserHome(),
+        UserDoctors.routeName: (ctx) => UserDoctors(),
         UserSpeciality.routeName: (ctx) => UserSpeciality(),
         AdminList.routeName: (ctx) => AdminList(),
       },
